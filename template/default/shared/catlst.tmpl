@@ -1,0 +1,14 @@
+{{if .}}
+<ul>
+	{{range .}}
+	<li>
+		<a>{{.Name}}</a>
+		{{if .Children}}
+		<ul>
+
+		</ul>
+		{{end}}
+	</li>
+	{{end}}
+</ul>
+{{end}}

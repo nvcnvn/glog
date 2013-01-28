@@ -1,0 +1,26 @@
+{{define "page"}}
+<form action="/contact/post.html" method="POST">
+	<div class="form_settings">
+		<p>
+			<span><label for="title">Title:</label></span>
+			<input class="contact" type="text" id="title" name="title" />
+		</p>
+		<p>
+			<span><label for="from">From:</label></span>
+			<input class="contact" type="text" id="from" name="from" />
+		</p>
+		<p>
+			<span><label for="to">To:</label></span>
+			<input class="contact" type="text" id="to" name="to" />
+		</p>
+		<p>
+			<span><label for="content">Content:</label></span>
+			<textarea class="contact textarea" rows="8" cols="50" name="content"></textarea>
+		</p>
+		<p style="padding-top: 15px">
+			<span>&nbsp;</span>
+			<input class="submit" type="submit" name="submit" value="submit">
+		</p>
+	</div>
+</form>
+{{end}}

@@ -1,0 +1,30 @@
+{{define "page"}}
+<div style="height: auto;overflow: hidden;">
+    <div style="width: auto;float: left;background: #aafed6;">
+        right content fixed width
+    </div>
+    <div style="width: 180px;overflow: hidden;">
+		<table>
+			<tr>
+				<td></td>
+				<td>Tieu de</td>
+				<td>Nguoi gui</td>
+				<td>Vao luc</td>
+			</tr>
+{{range .Contact}}
+			<tr>
+				<td>
+					<input type="checkbox" name="" />
+				<td>
+				<td>
+					{{.Title}}
+				</td>
+				<td>
+					{{.Form}}
+				</td>
+			</tr>
+{{end}}
+		</table>
+    </div>
+</div>
+{{end}}

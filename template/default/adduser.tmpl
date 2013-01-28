@@ -1,0 +1,10 @@
+{{define "page"}}
+<h1>{{.Email}}</h1>
+<form action="/user/add2" method="POST">
+	<label for="email">Email:</label>
+	<input type="text" id="email" name="email"  /><br />
+	<label for="password">Password:</label>
+	<input type="password" id="password" name="password" /><br />
+	<input type="submit" name="submit" value="Add" />
+</form>
+{{end}}

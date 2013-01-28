@@ -1,0 +1,11 @@
+{{define "page"}}
+<form action="/user/loggin" method="POST">
+	<label for="email">Email:</label>
+	<input type="text" id="email" name="email"  /><br />
+	<label for="password">Password:</label>
+	<input type="password" id="password" name="password" /><br />
+	<label for="remember">Remember?</label>
+	<input type="checkbox" id="remember" name="remember" /><br />
+	<input type="submit" name="submit" value="Loggin" />
+</form>
+{{end}}

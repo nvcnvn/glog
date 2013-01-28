@@ -1,0 +1,38 @@
+{{define "page"}}
+{{$data := .}}
+{{range .MainCats}}
+	{{if and .Children .LastEntry}}
+		<h1 class="ui-widget-header ui-corner-all ui-state-highlight">
+			{{.Name}}
+		</h1>
+		<div class="tab_summary">
+		{{$summary := $data.DBCtx.CatSummary .CatId}}
+		{{if $summary}}
+			<ul>
+			{{range $summary}}
+				{{if .LastEntryId}}
+				<li>
+					<a href="#cat_{{.CatId.Hex}}">{{.CatName}}</a>
+				</li>
+				{{end}}
+			{{end}}
+			</ul>
+			{{range $summary}}
+				{{if .LastEntryId}}
+			<div id="cat_{{.CatId.Hex}}">
+				<p>
+					<h2><a href="/view/post.html?id={{.LastEntryId.Hex}}">{{.LastEntryName}}</a></h2>
+					<p>{{.LastEntryDescription}}</p>
+				</p>
+			</div>
+				{{end}}
+			{{end}}
+		{{end}}
+		</div>
+		<br />
+	{{end}}
+{{end}}
+<script>
+$(".tab_summary").tabs();
+</script>
+{{end}}

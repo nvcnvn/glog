@@ -1,0 +1,96 @@
+{{define "page"}}
+<form action="/admin/data/submit.html" method="POST">
+	<div class="form_settings">
+		<p>
+			<span>To</span>
+			<input style="width:100px" type="text" name="Group" />
+			Ap
+			<input style="width:100px" type="text" name="Block" />
+		</p>
+		<p>
+			<span>Address:</span>
+			<input class="contact" type="text" name="Address" />
+		</p>
+		<hr />
+			<h2>Thong tin chu ho</h2>
+		<hr />
+		<p>
+			<span>Ho vs ten</span>
+			<input class="contact" type="text" name="FullName" />
+		</p>
+		<p>
+			<span>Gioi tinh</span>
+			<input type="checkbox" value="Female" name="Gender" />Nu
+		</p>
+		<p>
+			<span>Nam sinh</span>
+			<input class="contact" type="text" id="Birth" name="Birth" />
+		</p>
+		<p>
+			<span>Trinh do</span>
+			<select name="Quals">
+				<option value="0">Khong di hoc</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+				<option value="13">DH</option>
+				<option value="14">Sau DH</option>
+			</select>
+		</p>
+		<p>
+			<span>Chuyen Mon</span>
+			<input type="text" name="Area" />
+		</p>
+		<p>
+			<span>Dang di hoc</span>
+			<input type="checkbox" value="true" name="AttendingSchool" />
+		</p>
+		<p>
+			<span>Lop</span>
+			<input style="width:100px" type="text" name="SchoolTitle" />
+			Truong
+			<input style="width:100px" type="text" name="School" />
+		</p>
+		<p>
+			<span>Dang di lam</span>
+			<input type="checkbox" value="true" name="Working" />
+		</p>
+		<p>
+			<span>Cong viec</span>
+			<input style="width:100px" type="text" name="WorkTitle" />
+			Dia chi
+			<input style="width:100px" type="text" name="Office" />
+		</p>
+		<p>
+			<span>Thu nhap</span>
+			<input style="width:100px" type="text" name="Amount" />
+			Nguon thu
+			<input style="width:100px" type="text" name="Form" />
+		</p>
+		<p>
+			<span>Tham gia BHYT nam:</span>
+			<input type="text" name="HI" />
+		</p>
+		<p>
+			<span>Nguyen vong</span>
+			<input type="text" name="Desire" />
+		</p>
+		<p>
+			<span>ghi chu</span>
+			<input type="text" name="Note" />
+		</p>
+	</div>
+</form>
+<script>
+$("#Birth").datepicker("option", "dateFormat", "dd/mm/yy");
+</script>
+{{end}}
