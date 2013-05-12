@@ -9,7 +9,7 @@ import (
 func handler(w http.ResponseWriter, r *http.Request) {
 	envs := os.Environ()
 	for _, env := range envs {
-		fmt.Fprintf(w, "%s <br />", env)
+		fmt.Fprintf(w, "%s\n", env)
 	}
 }
 
