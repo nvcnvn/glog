@@ -15,5 +15,5 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/", handler)
-	http.ListenAndServe(os.Getenv("OPENSHIFT_INTERNAL_PORT"), nil)
+	http.ListenAndServe(os.Getenv("OPENSHIFT_INTERNAL_IP")+":"+os.Getenv("OPENSHIFT_INTERNAL_PORT"), nil)
 }
