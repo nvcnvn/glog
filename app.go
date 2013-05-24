@@ -17,15 +17,15 @@ func main() {
 		// cnnStr the connection string to MongoDB
 		cnnStr = os.Getenv("OPENSHIFT_MONGODB_DB_URL")
 		// langRoot the path to language folder in file system
-		langRoot = "language"
+		langRoot = os.Getenv("OPENSHIFT_REPO_DIR") + "language"
 		// langDefaultSet the default language set
 		langDefaultSet = "en"
 		// tmplDefaultSet the path to template folder in files system
-		tmplRoot = "template"
+		tmplRoot = os.Getenv("OPENSHIFT_REPO_DIR") + "template"
 		// tmplDefaultSet the default template set
 		tmplDefaultSet = "default"
 		// rsrcRoot the path to static folder in file system
-		rsrcRoot = "statics"
+		rsrcRoot = os.Getenv("OPENSHIFT_REPO_DIR") + "statics"
 		// rsrcPrefix the URL path for static file server
 		rsrcPrefix = "/statics/"
 		//toysignPath the URL path for toysign
