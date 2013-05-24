@@ -7,12 +7,12 @@ import (
 
 func Feed(c *controller) {
 	feed := &feeds.Feed{
-		Title:       "jmoiron.net blog",
-		Link:        &feeds.Link{Href: "http://jmoiron.net/blog"},
-		Description: "discussion about tech, footie, photos",
-		Author:      &feeds.Author{"Jason Moiron", "jmoiron@jmoiron.net"},
+		Title:       "Demo RSS/Atom Golang MongoDB OpenSihft",
+		Link:        &feeds.Link{Href: "http://gotest-openvn.rhcloud.com/"},
+		Description: "Khong biet noi gi",
+		Author:      &feeds.Author{"Cao Nguyen", "nguyen@open-vn.org"},
 		Created:     time.Now(),
-		Copyright:   "This work is copyright © Benjamin Button",
+		Copyright:   "copyright © no one",
 	}
 
 	thrs, err := c.db.NewestThreads(10)
@@ -25,7 +25,12 @@ func Feed(c *controller) {
 	}
 	feed.Items = items
 
-	rss, _ := feed.ToRss()
+	var xml string
+	if c.Get("format", false) == "rss" {
+		xml, _ = feed.ToRss()
+	} else {
+		xml, _ = feed.ToAtom()
+	}
 	c.Response.Header().Set("Content-type", "application/xml")
-	c.Print(rss)
+	c.Print(xml)
 }
