@@ -6,15 +6,16 @@ import (
 	"github.com/bufio/toys/view"
 	"labix.org/v2/mgo"
 	"net/http"
+	"os"
 )
 
 func main() {
 	// Configuration variable
 	var (
 		// host
-		host = "localhost:8080"
+		host = os.Getenv("OPENSHIFT_INTERNAL_IP") + ":" + os.Getenv("OPENSHIFT_INTERNAL_PORT")
 		// cnnStr the connection string to MongoDB
-		cnnStr = "localhost"
+		cnnStr = os.Getenv("OPENSHIFT_MONGODB_DB_URL")
 		// langRoot the path to language folder in file system
 		langRoot = "language"
 		// langDefaultSet the default language set
