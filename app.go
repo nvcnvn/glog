@@ -11,6 +11,8 @@ import (
 func main() {
 	// Configuration variable
 	var (
+		// host
+		host = "localhost:8080"
 		// cnnStr the connection string to MongoDB
 		cnnStr = "localhost"
 		// langRoot the path to language folder in file system
@@ -26,7 +28,7 @@ func main() {
 		// rsrcPrefix the URL path for static file server
 		rsrcPrefix = "/statics/"
 		//toysignPath the URL path for toysign
-		toysignPath = "/user/"
+		toysignPath = "/"
 	)
 
 	//database session
@@ -51,5 +53,5 @@ func main() {
 	}
 
 	http.Handle(toysignPath, Handler(toysignPath, dbsess, tmpl))
-	http.ListenAndServe("localhost:8080", nil)
+	http.ListenAndServe(host, nil)
 }

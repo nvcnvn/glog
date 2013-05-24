@@ -7,6 +7,7 @@ import (
 	"github.com/bufio/toys/secure/membership"
 	"github.com/bufio/toys/secure/membership/sessions"
 	"github.com/bufio/toys/view"
+	"github.com/nvcnvn/gotest/dbctx"
 	"labix.org/v2/mgo"
 	"net/http"
 	"path"
@@ -27,6 +28,7 @@ type controller struct {
 	sess sessions.Provider
 	auth membership.Authenticater
 	tmpl *view.View
+	db   *dbctx.DBContext
 }
 
 func (c *controller) View(page string, data interface{}) error {
@@ -63,6 +65,9 @@ func (h *handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 	//view template
 	c.tmpl = h.tmpl
+
+	//db context
+	c.db = dbctx.NewDBContext(database)
 
 	//process
 	for _, rt := range h._subRoutes {
