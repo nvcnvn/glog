@@ -1,0 +1,8 @@
+{{define "page"}}
+<form action="{{call .BasePath "login2"}}" method="POST">
+	<input type="email" name="email" />
+	<input type="password" name="password" />
+	<input type="submit" name="submit" value="Login" />
+</form>
+Login {{lang "login.lang" "hello"}}
+{{end}}
