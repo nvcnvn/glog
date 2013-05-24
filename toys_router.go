@@ -8,5 +8,7 @@ func (h *handler) initSubRoutes() {
 		route{"newthread", NewThread},
 		route{"newthread2", NewThread2},
 		route{"feed", Feed},
+		route{"newcat", NewCat},
+		route{"newcat2", NewCat2},
 	}
 }
