@@ -1,0 +1,9 @@
+{{define "page"}}
+<h1>{{.Thread.Title}}</h1>
+<p><i>{{.Thread.Description}}</i></p>
+<p>
+	{{.Thread.Content}}
+</p>
+{{.Thread.Created.Format "Mon Jan 2 15:04:05"}}
+
+{{end}}

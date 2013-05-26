@@ -31,4 +31,21 @@ func NewThread2(c *controller) {
 	if err := c.db.SaveThread(&thr); err != nil {
 		c.View("newthread_error.tmpl", err.Error())
 	}
+	c.Redirect("/thread?id="+thr.Id.Hex(), 303)
+}
+
+func ViewThread(c *controller) {
+	idStr := c.Get("id", false)
+	if !bson.IsObjectIdHex(idStr) {
+		c.Print("Not found")
+		return
+	}
+	id := bson.ObjectIdHex(idStr)
+	thr, err := c.db.GetThread(id)
+	if err != nil {
+		c.Print("Not found")
+	}
+	data := c.ViewData("View thread")
+	data["Thread"] = thr
+	c.View("viewthread.tmpl", data)
 }

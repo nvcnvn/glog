@@ -81,3 +81,12 @@ func (db *DBContext) NewestThreads(n int) ([]Thread, error) {
 	}
 	return nil, err
 }
+
+func (db *DBContext) GetThread(id bson.ObjectId) (*Thread, error) {
+	result := &Thread{}
+	err := db.thrColl.FindId(id).One(result)
+	if err == nil {
+		return result, nil
+	}
+	return nil, err
+}
