@@ -2,7 +2,7 @@ package main
 
 import (
 	//"github.com/bufio/toys/util/forms"
-	"github.com/nvcnvn/gotest/dbctx"
+	"github.com/nvcnvn/glog/dbctx"
 	"labix.org/v2/mgo/bson"
 )
 

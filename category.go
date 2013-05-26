@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/nvcnvn/gotest/dbctx"
+	"github.com/nvcnvn/glog/dbctx"
 )
 
 func NewCat(c *controller) {

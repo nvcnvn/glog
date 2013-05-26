@@ -7,7 +7,7 @@ import (
 	"github.com/bufio/toys/secure/membership"
 	"github.com/bufio/toys/secure/membership/sessions"
 	"github.com/bufio/toys/view"
-	"github.com/nvcnvn/gotest/dbctx"
+	"github.com/nvcnvn/glog/dbctx"
 	"labix.org/v2/mgo"
 	"net/http"
 	"path"
