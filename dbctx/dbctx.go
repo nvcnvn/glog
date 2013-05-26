@@ -75,7 +75,7 @@ func (db *DBContext) SaveThread(thr *Thread) error {
 
 func (db *DBContext) NewestThreads(n int) ([]Thread, error) {
 	results := make([]Thread, 0, n)
-	err := db.thrColl.Find(nil).Sort("-created").Limit(n).All(&results)
+	err := db.thrColl.Find(nil).Sort("-_id").Limit(n).All(&results)
 	if err == nil {
 		return results, nil
 	}
