@@ -1,13 +1,19 @@
 {{define "page"}}
 <form action="{{call .BasePath "newthread2"}}" method="POST">
-	<select name="CatId">
-	{{range .CatLst}}
-		<option value="{{.Id.Hex}}">{{.Name}}</option>
-	{{end}}
-	</select>
-	<input type="text" name="Item.Title" />
-	<input type="text" name="Item.Description" />
-	<textarea name="Content"></textarea>
+	<div>
+		Category <select name="CatId">
+		{{range .CatLst}}
+			<option value="{{.Id.Hex}}">{{.Name}}</option>
+		{{end}}
+		</select>
+		Title <input type="text" name="Item.Title" />
+	</div>
+	<div>
+		Description <input type="text" name="Item.Description" />
+	</div>
+	<div>
+		<textarea name="Content"></textarea>
+	</div>
 	<input type="submit" value="Submit" />
 </form>
 {{end}}

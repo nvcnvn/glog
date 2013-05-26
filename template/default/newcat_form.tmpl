@@ -1,6 +1,10 @@
 {{define "page"}}
 <form action="{{call .BasePath "newcat2"}}" method="POST">
-	<input type="text" name="Name" />
-	<input type="submit" value="Submit" />
+	<div>
+		Catergoty Name: <input type="text" name="Name" />
+	</div>
+	<div>
+		<input type="submit" value="Submit" />
+	</div>
 </form>
 {{end}}

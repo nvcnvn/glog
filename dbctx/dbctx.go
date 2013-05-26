@@ -1,7 +1,7 @@
 package dbctx
 
 import (
-	"github.com/gorilla/feeds"
+	"github.com/nvcnvn/feeds"
 	"labix.org/v2/mgo"
 	"labix.org/v2/mgo/bson"
 	"time"

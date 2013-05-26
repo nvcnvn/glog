@@ -1,14 +1,14 @@
 package main
 
 import (
-	"github.com/gorilla/feeds"
+	"github.com/nvcnvn/feeds"
 	"time"
 )
 
 func Feed(c *controller) {
 	feed := &feeds.Feed{
 		Title:       "Demo RSS/Atom Golang MongoDB OpenSihft",
-		Link:        &feeds.Link{Href: "http://gotest-openvn.rhcloud.com/"},
+		Link:        &feeds.Link{Href: "http://gotest-openvn.rhcloud.com/feed"},
 		Description: "Khong biet noi gi",
 		Author:      &feeds.Author{"Cao Nguyen", "nguyen@open-vn.org"},
 		Created:     time.Now(),
@@ -22,6 +22,7 @@ func Feed(c *controller) {
 	items := make([]*feeds.Item, len(thrs), len(thrs))
 	for i := 0; i < len(thrs); i++ {
 		items[i] = &thrs[i].Item
+		items[i].Link.Href = "http://gotest-openvn.rhcloud.com" + items[i].Link.Href
 	}
 	feed.Items = items
 

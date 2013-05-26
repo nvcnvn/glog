@@ -1,13 +1,18 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>{{if .Title}}{{.Title}}{{end}}</title>
-  <meta name="description" content="toys template project - demon layout.tmpl">
-  <meta name="author" content="nguyen@open-vn.org">
-  <!--[if lt IE 9]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
+	<meta charset="utf-8">
+	<title>{{if .Title}}{{.Title}}{{end}}</title>
+	<meta name="description" content="toys template project - demon layout.tmpl">
+	<meta name="author" content="nguyen@open-vn.org">
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<style>
+	input, textarea {
+		width: 500px;
+	}
+	</style>
 </head>
 <body>
 	{{template "page" .}}
