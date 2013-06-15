@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/bufio/mongotoys/mgoauth"
-	"github.com/bufio/mongotoys/mgosessions"
+	"github.com/bufio/mtoy/mgoauth"
+	"github.com/bufio/mtoy/mgosessions"
 	"github.com/bufio/toys"
 	"github.com/bufio/toys/secure/membership"
 	"github.com/bufio/toys/secure/membership/sessions"

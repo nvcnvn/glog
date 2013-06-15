@@ -1,6 +1,8 @@
 package dbctx
 
 import (
+	"github.com/bufio/mtoy"
+	"github.com/bufio/toys/model"
 	"github.com/nvcnvn/feeds"
 	"labix.org/v2/mgo"
 	"labix.org/v2/mgo/bson"
@@ -8,16 +10,16 @@ import (
 )
 
 type Category struct {
-	Id         bson.ObjectId `bson:"_id"`
+	Id         model.Identifier `bson:"_id"`
 	Name       string
 	Count      uint
-	LastThread bson.ObjectId `bson:",omitempty"`
+	LastThread model.Identifier `bson:",omitempty"`
 	LastUpdate time.Time
 }
 
 type Thread struct {
-	Id      bson.ObjectId `bson:"_id"`
-	CatId   bson.ObjectId
+	Id      model.Identifier `bson:"_id"`
+	CatId   model.Identifier
 	Content string
 	Tags    []string
 	feeds.Item
@@ -37,7 +39,7 @@ func NewDBContext(database *mgo.Database) *DBContext {
 
 func (db *DBContext) SaveCategory(cat *Category) error {
 	if !cat.Id.Valid() {
-		cat.Id = bson.NewObjectId()
+		cat.Id = mtoy.NewID()
 	}
 	return db.catColl.Insert(cat)
 }
@@ -56,13 +58,13 @@ func (db *DBContext) SaveThread(thr *Thread) error {
 	now := time.Now()
 	if !thr.Id.Valid() {
 		//insert new thread
-		thr.Id = bson.NewObjectId()
+		thr.Id = mtoy.NewID()
 		thr.Created = now
 		catUpdateQuery["$inc"] = bson.M{"count": 1}
 	}
 
 	thr.Updated = now
-	thr.Link = &feeds.Link{Href: "/thread?id=" + thr.Id.Hex()}
+	thr.Link = &feeds.Link{Href: "/thread?id=" + thr.Id.Encode()}
 	thr.Author = &feeds.Author{"demotration", "nguyen@example.com"}
 	catUpdateQuery["$set"] = bson.M{"lastthread": thr.Id}
 	err := db.catColl.UpdateId(thr.CatId, catUpdateQuery)
