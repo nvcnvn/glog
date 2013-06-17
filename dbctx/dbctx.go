@@ -10,19 +10,27 @@ import (
 )
 
 type Category struct {
-	Id         model.Identifier `bson:"_id"`
+	Id         bson.ObjectId `bson:"_id"`
 	Name       string
 	Count      uint
-	LastThread model.Identifier `bson:",omitempty"`
+	LastThread bson.ObjectId `bson:",omitempty"`
 	LastUpdate time.Time
 }
 
+func (c *Category) GetId() model.Identifier {
+	return mtoy.ID{c.Id}
+}
+
 type Thread struct {
-	Id      model.Identifier `bson:"_id"`
-	CatId   model.Identifier
+	Id      bson.ObjectId `bson:"_id"`
+	CatId   bson.ObjectId
 	Content string
 	Tags    []string
 	feeds.Item
+}
+
+func (t *Thread) GetId() model.Identifier {
+	return mtoy.ID{t.Id}
 }
 
 type DBContext struct {
@@ -38,8 +46,8 @@ func NewDBContext(database *mgo.Database) *DBContext {
 }
 
 func (db *DBContext) SaveCategory(cat *Category) error {
-	if !cat.Id.Valid() {
-		cat.Id = mtoy.NewID()
+	if !cat.GetId().Valid() {
+		cat.Id = bson.NewObjectId()
 	}
 	return db.catColl.Insert(cat)
 }
@@ -58,13 +66,13 @@ func (db *DBContext) SaveThread(thr *Thread) error {
 	now := time.Now()
 	if !thr.Id.Valid() {
 		//insert new thread
-		thr.Id = mtoy.NewID()
+		thr.Id = bson.NewObjectId()
 		thr.Created = now
 		catUpdateQuery["$inc"] = bson.M{"count": 1}
 	}
 
 	thr.Updated = now
-	thr.Link = &feeds.Link{Href: "/thread?id=" + thr.Id.Encode()}
+	thr.Link = &feeds.Link{Href: "/thread?id=" + thr.GetId().Encode()}
 	thr.Author = &feeds.Author{"demotration", "nguyen@example.com"}
 	catUpdateQuery["$set"] = bson.M{"lastthread": thr.Id}
 	err := db.catColl.UpdateId(thr.CatId, catUpdateQuery)

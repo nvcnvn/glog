@@ -7,5 +7,5 @@ func Home(c *controller) {
 		return
 	}
 
-	c.Print(user.Email)
+	c.Print(user.GetEmail())
 }

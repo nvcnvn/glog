@@ -1,11 +1,11 @@
 package dbctx
 
 import (
-	"github.com/bufio/toys/model"
+	"labix.org/v2/mgo/bson"
 )
 
 type Photo struct {
-	Id            model.Identifier `bson:"_id"`
+	Id            bson.ObjectId `bson:"_id"`
 	PHash         int64
 	Part0         int8
 	Part1         int8
@@ -19,6 +19,5 @@ type Photo struct {
 	Location      string
 	Description   string
 	SavedLocation string
-	SavedId       model.Identifier `bson:"_id"`
-	
+	SavedId       bson.ObjectId `bson:"_id"`
 }

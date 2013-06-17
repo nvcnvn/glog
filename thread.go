@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/bufio/mtoy"
 	//"github.com/bufio/toys/util/forms"
 	"github.com/nvcnvn/glog/dbctx"
@@ -9,7 +10,10 @@ import (
 
 func NewThread(c *controller) {
 	data := c.ViewData("New Blog")
-	CatLst, _ := c.db.GetAllCategory()
+	CatLst, err := c.db.GetAllCategory()
+	if err != nil {
+		fmt.Println("thread: getting cat issue ", err)
+	}
 	data["CatLst"] = CatLst
 	c.View("newthread_form.tmpl", data)
 }
@@ -20,7 +24,7 @@ func NewThread2(c *controller) {
 	// c.Print(c.db.SaveCategory(&cat))
 	thr := dbctx.Thread{}
 	if idStr := c.Post("CatId", false); bson.IsObjectIdHex(idStr) {
-		thr.CatId = &mtoy.ID{bson.ObjectIdHex(idStr)}
+		thr.CatId = mtoy.ID{bson.ObjectIdHex(idStr)}
 	} else {
 		c.View("newthread_error.tmpl", "")
 		return
@@ -32,7 +36,7 @@ func NewThread2(c *controller) {
 	if err := c.db.SaveThread(&thr); err != nil {
 		c.View("newthread_error.tmpl", err.Error())
 	}
-	c.Redirect("/thread?id="+thr.Id.Encode(), 303)
+	c.Redirect("/thread?id="+thr.GetId().Encode(), 303)
 }
 
 func ViewThread(c *controller) {
