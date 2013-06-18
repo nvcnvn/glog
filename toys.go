@@ -1,12 +1,12 @@
 package main
 
 import (
-	"github.com/bufio/mtoy/mgoauth"
-	"github.com/bufio/mtoy/mgosessions"
-	"github.com/bufio/toys"
-	"github.com/bufio/toys/secure/membership"
-	"github.com/bufio/toys/secure/membership/sessions"
-	"github.com/bufio/toys/view"
+	"github.com/kidstuff/mtoy/mgoauth"
+	"github.com/kidstuff/mtoy/mgosessions"
+	"github.com/kidstuff/toys"
+	"github.com/kidstuff/toys/secure/membership"
+	"github.com/kidstuff/toys/secure/membership/sessions"
+	"github.com/kidstuff/toys/view"
 	"github.com/nvcnvn/glog/dbctx"
 	"labix.org/v2/mgo"
 	"net/http"

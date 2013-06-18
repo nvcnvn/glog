@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/bufio/mtoy"
-	//"github.com/bufio/toys/util/forms"
+	"github.com/kidstuff/mtoy"
+	//"github.com/kidstuff/toys/util/forms"
 	"github.com/nvcnvn/glog/dbctx"
 	"labix.org/v2/mgo/bson"
 )

@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/bufio/toys/locale"
-	"github.com/bufio/toys/view"
+	"github.com/kidstuff/toys/locale"
+	"github.com/kidstuff/toys/view"
 	"labix.org/v2/mgo"
 	"net/http"
 	"os"
