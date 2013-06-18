@@ -1,8 +1,8 @@
 package dbctx
 
 import (
-	"github.com/bufio/mtoy"
-	"github.com/bufio/toys/model"
+	"github.com/kidstuff/mtoy"
+	"github.com/kidstuff/toys/model"
 	"github.com/nvcnvn/feeds"
 	"labix.org/v2/mgo"
 	"labix.org/v2/mgo/bson"

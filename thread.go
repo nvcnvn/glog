@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-	"github.com/bufio/mtoy"
-	//"github.com/bufio/toys/util/forms"
 	"github.com/nvcnvn/glog/dbctx"
 	"labix.org/v2/mgo/bson"
 )
@@ -24,7 +22,7 @@ func NewThread2(c *controller) {
 	// c.Print(c.db.SaveCategory(&cat))
 	thr := dbctx.Thread{}
 	if idStr := c.Post("CatId", false); bson.IsObjectIdHex(idStr) {
-		thr.CatId = mtoy.ID{bson.ObjectIdHex(idStr)}
+		thr.CatId = bson.ObjectIdHex(idStr)
 	} else {
 		c.View("newthread_error.tmpl", "")
 		return

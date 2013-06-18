@@ -7,7 +7,7 @@ func Login(c *controller) {
 func Login2(c *controller) {
 	if user, err := c.auth.ValidateUser(c.Post("email", false),
 		c.Post("password", false)); err == nil {
-		err = c.auth.LogginUser(user.GetId().Encode(), 60*60)
+		err = c.auth.LogginUser(user.GetId(), 60*60)
 		if err != nil {
 			c.Print("Loggin falied!")
 		} else {
