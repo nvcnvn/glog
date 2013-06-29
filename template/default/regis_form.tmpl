@@ -1,0 +1,36 @@
+{{define "page"}}
+<form action="{{call .BasePath "regis2"}}" method="POST">
+	<div class="toys_form">
+		<p>
+			<label>Email</label>
+			<input type="email" name="Email" />
+		</p>
+		<p>
+			<label>Password</label>
+			<input type="password" name="password" />
+		</p>
+		<p>
+			<label>Re Type Password</label>
+			<input type="password" name="repassword" />
+		</p>
+		<p>
+			<label>Your Name</label>
+			<input type="text" placeholder="First Name" class="small" name="Info.FirstName" />
+			<input type="text" placeholder="Middle Name" class="small" name="Info.MiddleName" />
+			<input type="text" placeholder="Last Name" class="small" name="Info.LastName" />
+		</p>
+		<p>
+			<label>Your Nick Name</label>
+			<input type="text" name="Info.NickName" />
+		</p>
+		<p>
+			<label>BirthDay</label>
+			<input type="date" name="Info.BirthDay" />
+		</p>
+		<p>
+			<label>&nbsp;</label>
+			<input type="submit" name="submit" value="Login" />
+		</p>
+	</div>
+</form>
+{{end}}
