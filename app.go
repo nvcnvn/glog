@@ -2,15 +2,29 @@ package main
 
 import (
 	"fmt"
+	"github.com/kidstuff/toys/confg"
+	_ "github.com/kidstuff/toys/confg/jsonconfg"
 	"github.com/kidstuff/toys/locale"
 	"github.com/kidstuff/toys/view"
 	"labix.org/v2/mgo"
 	"net/http"
+	_ "net/http/pprof"
 	"os"
 )
 
+var (
+	CONFIG confg.Configurator
+	DBNAME string = "test"
+)
+
 func main() {
+	var err error
 	// Configuration variable
+	CONFIG, err = confg.Open("jsonconfg", "glog-confg.json")
+	if err != nil {
+		panic("mgoauth: cannot load mgoauth-confg.json " + err.Error())
+	}
+
 	var (
 		// host
 		host = os.Getenv("OPENSHIFT_INTERNAL_IP") + ":" + os.Getenv("OPENSHIFT_INTERNAL_PORT")

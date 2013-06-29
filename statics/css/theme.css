@@ -1,14 +1,15 @@
 html {height:100%}
 * {margin:0; padding:0}
-body {font:normal .80em 'trebuchet ms', arial, sans-serif; background:#f0efe2; color:#777}
-a, a:hover {outline:0; text-decoration:underline; color:#f05a00}
+body {font:normal .80em 'trebuchet ms', arial, sans-serif; background:#D1E3DA; color:#777}
+a, a:hover {outline:0; text-decoration:underline; color:#4254C9}
 a:hover {text-decoration:none}
 .toys_form {margin:15px 0 0 0}
 .toys_form p {padding:0 0 4px 0}
 .toys_form label {float: left; width:200px; text-align:left}
 .toys_form input, textarea {padding:5px; width:299px; font:100% arial; border:1px solid #E5E5DB; background:#FFF; color:#47433F}
 .toys_form input[type="radio"] {width:auto }
-.toys_form input[type="submit"] {font:100% arial; border:1px solid; width:99px; margin:0 0 0 212px; height:33px; padding:2px 0 3px 0; cursor:pointer; background:#F05A00; color:#FFF}
+.toys_form input[type="submit"] {font:100% arial; border:1px solid; width:99px; margin:0 0 0 212px; height:33px; padding:2px 0 3px 0; cursor:pointer; background:#0022FF; color:#FFF}
 .toys_form textarea, select {font:100% arial; width:299px}
 .toys_form select {width: 310px}
 .toys_form input[type="checkbox"] {margin:4px 0; padding:0; width:14px; border:0; background:none}
+.toys_form .small {width: 89px;}
