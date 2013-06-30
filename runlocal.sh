@@ -5,4 +5,4 @@ export OPENSHIFT_INTERNAL_PORT=8080
 export OPENSHIFT_MONGODB_DB_URL=localhost
 export OPENSHIFT_REPO_DIR=$GOPATH/src/github.com/nvcnvn/glog/
 echo "Start the program"
-$GOPATH/src/github.com/nvcnvn/glog/glog
+$GOPATH/src/github.com/nvcnvn/glog/glog 2>&1 | tee out.txt

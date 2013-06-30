@@ -13,8 +13,9 @@ import (
 )
 
 var (
-	CONFIG confg.Configurator
-	DBNAME string = "test"
+	CONFIG      confg.Configurator
+	DBNAME      string = "test"
+	MODELDRIVER string = "mtoy"
 )
 
 func main() {
@@ -63,6 +64,7 @@ func main() {
 	tmpl := view.NewView(tmplRoot)
 	tmpl.SetLang(lang)
 	tmpl.HandleResource(rsrcPrefix, rsrcRoot)
+	tmpl.Watch = true
 	if err := tmpl.Parse(tmplDefaultSet); err != nil {
 		fmt.Println(err.Error())
 	}

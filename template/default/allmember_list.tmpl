@@ -1,0 +1,18 @@
+{{define "page"}}{{$infoUrl := call .BasePath "members/info?id="}}
+<table>
+{{range .UserLst.Slice}}
+	<tr>
+		<th>Email</th>
+		<th>Full Name</th>
+		<th>Nick Name</th>
+	</td>
+	<tr>
+		<td><a href="{{$infoUrl}}{{.GetId.Encode}}">{{.GetEmail}}</a></td>{{template "meminfo" .GetInfomation}}
+	</tr>
+{{end}}
+</table>
+{{end}}
+{{define "meminfo"}}
+		<td>{{.LastName}} {{.MiddleName}} {{.FirstName}}</td>
+		<td>{{.NickName}}</td>
+{{end}}
