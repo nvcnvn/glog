@@ -29,7 +29,7 @@ func AllMember(c *controller) {
 		limit = 20
 	}
 
-	var userLst membership.UserLister
+	var userLst []membership.User
 
 	offsetStr := c.Get("offsetId", false)
 	offsetId, err := model.MustLoad(MODELDRIVER).DecodeId(offsetStr)
@@ -42,7 +42,7 @@ func AllMember(c *controller) {
 	if err == nil {
 		data := c.ViewData("Member List")
 		data["UserLst"] = userLst
-		c.View("allmember_list.tmpl", data)
+		c.View("member_list.tmpl", data)
 	}
 }
 
@@ -53,4 +53,14 @@ func FindMemberResult(c *controller) {
 }
 
 func MemberInfo(c *controller) {
+	idStr := c.Get("id", false)
+	id, err := model.MustLoad(MODELDRIVER).DecodeId(idStr)
+	if err == nil {
+		user, err := c.auth.FindUser(id)
+		if err == nil {
+			data := c.ViewData(user.GetEmail() + " info")
+			data["User"] = user
+			c.View("userinfo_detail.tmpl", data)
+		}
+	}
 }

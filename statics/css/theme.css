@@ -1,6 +1,22 @@
-html {height:100%}
 * {margin:0; padding:0}
-body {font:normal .80em 'trebuchet ms', arial, sans-serif; background:#D1E3DA; color:#777}
+body,html{
+  height:100%;
+}
+body {font:normal .80em 'trebuchet ms', arial, sans-serif; color:#777;background:#D1E3DA;}
+#main {
+    width: 1026px;
+    margin: 0 auto;
+    position: relative;
+    height: 100%;
+}
+#main > * {
+    width: 960px;
+    padding: 0 33px;
+    background: #FFF;
+}
+#content {
+    height: 100%;
+}
 a, a:hover {outline:0; text-decoration:underline; color:#4254C9}
 a:hover {text-decoration:none}
 .toys_form {margin:15px 0 0 0}

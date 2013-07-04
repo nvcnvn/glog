@@ -1,13 +1,16 @@
 {{define "page"}}{{$infoUrl := call .BasePath "members/info?id="}}
 <table>
-{{range .UserLst.Slice}}
+{{range $idx, $User := .UserLst}}
 	<tr>
+		<th></th>
 		<th>Email</th>
 		<th>Full Name</th>
 		<th>Nick Name</th>
+		<th>Join Day</th>
 	</td>
 	<tr>
-		<td><a href="{{$infoUrl}}{{.GetId.Encode}}">{{.GetEmail}}</a></td>{{template "meminfo" .GetInfomation}}
+		<td>{{plus $idx 1}}</td>
+		<td><a href="{{$infoUrl}}{{$User.GetId.Encode}}">{{$User.GetEmail}}</a></td>{{template "meminfo" $User.GetInfomation}}
 	</tr>
 {{end}}
 </table>
@@ -15,4 +18,5 @@
 {{define "meminfo"}}
 		<td>{{.LastName}} {{.MiddleName}} {{.FirstName}}</td>
 		<td>{{.NickName}}</td>
+		<td>{{.JoinDay}}</td>
 {{end}}

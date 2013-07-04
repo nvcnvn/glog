@@ -32,7 +32,7 @@ func Regis2(c *controller) {
 		return
 	}
 
-	info := membership.Information{}
+	info := membership.UserInfo{}
 	info.FirstName = c.Post("Info.FirstName", true)
 	info.MiddleName = c.Post("Info.MiddleName", true)
 	info.LastName = c.Post("Info.LastName", true)
@@ -45,7 +45,7 @@ func Regis2(c *controller) {
 
 	pri := map[string]bool{}
 
-	if err := c.auth.AddUserInfo(email, pwd, &info, pri,
+	if _, err := c.auth.AddUserDetail(email, pwd, &info, pri,
 		false, true); err != nil {
 		c.Print("some error when regis...", err.Error())
 		return

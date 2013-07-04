@@ -23,7 +23,7 @@ type controller struct {
 	dbsess *mgo.Session
 	toys.Controller
 	sess sessions.Provider
-	auth membership.Authenticater
+	auth membership.UserManager
 	tmpl *view.View
 	db   *dbctx.DBContext
 }
@@ -78,7 +78,7 @@ func (h *handler) newcontroller(w http.ResponseWriter, r *http.Request) controll
 	//web session
 	c.sess = mgosessions.NewMgoProvider(w, r, sessColl)
 	//web authenthicator
-	c.auth = mgoauth.NewAuthDBCtx(w, r, c.sess, userColl, rememberColl)
+	c.auth = mgoauth.NewMgoUserCtx(w, r, c.sess, userColl, rememberColl)
 	c.auth.SetNotificater(h.notifer)
 	//view template
 	c.tmpl = h.tmpl

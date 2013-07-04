@@ -50,5 +50,5 @@ func ViewThread(c *controller) {
 	}
 	data := c.ViewData("View thread")
 	data["Thread"] = thr
-	c.View("viewthread.tmpl", data)
+	c.View("thread_view.tmpl", data)
 }

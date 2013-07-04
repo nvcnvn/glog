@@ -1,4 +1,5 @@
 {{define "page"}}
+Login {{lang "login.lang" "hello"}}
 <form action="{{call .BasePath "login2"}}" method="POST">
 	<div class="toys_form">
 		<p>
@@ -11,9 +12,12 @@
 		</p>
 		<p>
 			<label>&nbsp;</label>
+			Remember? <input type="checkbox" name="remember" />
+		</p>
+		<p>
+			<label>&nbsp;</label>
 			<input type="submit" name="submit" value="Login" />
 		</p>
 	</div>
 </form>
-Login {{lang "login.lang" "hello"}}
 {{end}}
